@@ -6,11 +6,14 @@ set "webhook_url=YOURWEBHOOKHERE"
 
 :loop
 :: Prompt the user to enter a message
-set /p "message=Enter your message (type 'exit' to quit): "
+set /p "message=Enter your message (type 'exit' to quit or 'upgrade' to be linked to the newer version of this program.): "
 
 :: Check if the user wants to exit
 if "!message!"=="exit" (
     goto :end
+)
+if "!message!"=="upgrade" (
+    start "" https://github.com/WiderG/DiscordWebhookMessager
 )
 
 :: Construct the JSON payload
